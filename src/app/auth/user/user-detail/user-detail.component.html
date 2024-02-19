@@ -1,0 +1,76 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>supervised_user_circle</mat-icon>
+       </button>
+    <h1>User details</h1>
+    <span class="example-spacer"></span>
+    <button routerLink="/listusers" mat-raised-button color="accent">View List</button>
+  </mat-toolbar>
+<div style="height:100%" class="container mt-4">
+<mat-card class="example-card text-center">
+    <div ><img src="http://localhost:9090/User/image/{{userDetails.id}}" alt="User Image" width="70" height="100"></div>
+    <mat-card-header class="justify-content-center">
+      <mat-card-title>{{userDetails.firstname}} {{userDetails.lastname}}</mat-card-title>
+      <mat-card-subtitle>{{userDetails.email}}</mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+            <div matLine>
+              Cin :
+              <button mat-button>
+                  {{userDetails.cin}}
+               </button>
+            </div>
+          </mat-list-item>
+          <mat-list-item>
+            <div matLine>
+               Birth Date:
+              <button mat-button>{{userDetails.birth_date}}</button>
+            </div>
+          </mat-list-item>
+          <mat-list-item>
+            <div matLine>
+              Login :
+              <button mat-button>{{userDetails.login}}</button>
+            </div>
+          </mat-list-item>
+        <mat-list-item>
+          <div matLine>
+            Phone Number :
+            <button mat-button>{{userDetails.phone_number}}</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div matLine>
+            Gender :
+            <button mat-button>{{userDetails.gender}}</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div matLine>
+            Role :
+            <button mat-button>{{userDetails.role}}</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div matLine>
+            Nationnality :
+            <button mat-button>{{userDetails.nationality}}</button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div matLine>
+            work post :
+            <button mat-button>
+                {{userDetails.work_post}}
+             </button>
+  
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <button mat-raised-button color="warn" mat-dialog-close (click)="Backtolist()"> Close</button>
+  </mat-card>
+</div>

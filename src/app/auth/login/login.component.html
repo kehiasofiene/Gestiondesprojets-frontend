@@ -1,0 +1,171 @@
+<!--div class ="body">
+    <div class="container mycontainer" >
+        <div class="card justify-content-md-center">
+            <div class="card-header text-center">
+                <h3>Se connecter</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="E-mail" [(ngModel)]  = "user.email">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Mot de passe" [(ngModel)]  = "user.password">
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+                    <a routerLink='/register/:department' class="btn btn-link">S'inscrire</a>
+                    <button type="button" class="btn btn-primary"  (click)="loginUser()" ><i class="fa-solid fa-check"></i>&nbsp; Se connecter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div-->
+    <!-- 2eme methode
+    <html>
+    <body>
+    <section class="Form ">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-5">
+                    <img width="300" src="assets/téléchargement-removebg-preview (1).png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <h1 class="font-weight-bold py-3 " style="color: white;size:bold">Login</h1>
+                    <h4 style="color: white;size:bold">Sign into your account</h4>
+                    <form >
+                        <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="email" placeholder="Email-Address" class="form-control my-3 p-4"  #email="ngModel" [(ngModel)]= "user.email" [ngModelOptions]="{ standalone: true }" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
+                        </div>
+                    </div> -->
+                     <!----controle de saisie--->
+                     <!-- <div *ngIf="email.invalid && email.touched ">
+                        <div *ngIf="email.errors?.['required']" >
+                            <span class="invalid" style="color: red; size: bold;">required</span>
+                        </div>
+                    </div>
+                    <div *ngIf="email.errors?.['pattern']">
+                        <span class="invalid" style="color: red; size: bold;">Enter a valid email</span>
+                    </div>
+                
+                
+                        <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="password" placeholder="password" class="form-control my-3 p-4" #password="ngModel" [(ngModel)]= "user.password" [ngModelOptions]="{ standalone: true }" required minlength="8">
+                        </div> -->
+                        <!----controle de saisie--->
+                        <!-- <div *ngIf="password.invalid && password.touched ">
+                            <div *ngIf="password.errors?.['required']" >
+                                <span class="invalid" style="color: red; size: bold;">required</span>
+                            </div>
+                        </div>
+                        <div *ngIf="password.errors?.['minlength']">
+                            <span class="invalid" style="color: red; size: bold;">Min Length</span>
+                        </div>
+                    </div> -->
+                     <!------->
+                    <!-- <div class="form-row">
+                        <div class="col-lg-7">
+                            <button type="button"  class="btn1 mt-3 mb-5" (click)="loginUser()">Login</button>
+                        </div>       
+                        <div class="col-lg-7">
+                            <a href="button" style="color: white; size: bold;"> Forget Password?</a>
+                        </div> 
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+   -->
+   <html>
+<body>
+    
+   <section class="ftco-section">
+    <div class="container">
+    <div class="row justify-content-center">
+   
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-md-12 col-lg-10">
+    <div class="wrap d-md-flex">
+    <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center ">
+    <div class="text w-100">
+    <h2>Welcome to Our Project Management Application !</h2>
+    <p>We hope that our project management tool will support you in streamlining your project workflows and reaching your objectives..Log in to get started !</p>
+
+    </div>
+    </div>
+    <div class="login-wrap p-4 p-lg-12">
+        <div class="col-lg-12 login-wrap-bg d-flex align-items-center">
+            <div class="login-wrapper">
+            <div class="loginbox">
+            <div class="login-right">
+            <div class="login-right-wrap">
+            <div class="account-logo">
+            <a href="index.html"><img src="/assets/Logo-vermeg.png" alt="" width="90%"></a>
+            </div>
+            <h2 class="h2">Login</h2>
+           
+            
+            <form #f="ngForm">
+            <div class="form-group">
+            <label>Email <span class="">*</span></label>
+            <input type="email" placeholder="Email-Address" class="form-control my-3 p-4"  #email="ngModel" [(ngModel)]= "user.email" [ngModelOptions]="{ standalone: true }" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
+            <div *ngIf="email.invalid && email.touched ">
+                <div *ngIf="email.errors?.['required']" >
+                    <span class="invalid" style="color: red; size: bold;">required</span>
+                </div>
+            </div>
+            <div *ngIf="email.errors?.['pattern']">
+                <span class="invalid" style="color: red; size: bold;">Enter a valid email</span>
+            </div>
+            </div>
+            <div class="form-group">
+            <label>Password <span class="">*</span></label>
+            <input type="password" placeholder="password" class="form-control my-3 p-4" #password="ngModel" [(ngModel)]= "user.password" [ngModelOptions]="{ standalone: true }" required minlength="8">
+            <div *ngIf="password.invalid && password.touched ">
+                <div *ngIf="password.errors?.['required']" >
+                    <span class="invalid" style="color: red; size: bold;">required</span>
+                </div>
+            </div>
+            <div *ngIf="password.errors?.['minlength']">
+                <span class="invalid" style="color: red; size: bold;">Min Length</span>
+            </div>
+        
+            <span class="profile-views feather-eye-off toggle-password"></span>
+            </div>
+            <div class="forgotpass">
+            <div class="remember-me">
+            <label class="custom_check mr-2 mb-0 d-inline-flex remember-me"> Remember me
+            <input type="checkbox" name="radio">
+            <span class="checkmark"></span>
+            </label>
+            </div>
+            </div>
+            <div style="
+            color: #FF4600;font-size:13px;"[hidden]="valid==true">
+           <p>User not found. Please check your email and password</p>
+            </div>
+            <div class="form-group login-btn">
+            <button class="btn btn-primary btn-block" type="submit" [disabled]="f.invalid" (click)="loginUser()">Login</button>
+            </div>
+            </form>
+            
+         
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </section>
+</body>
+</html>

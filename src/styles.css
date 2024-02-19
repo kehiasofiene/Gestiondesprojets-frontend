@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.invalid-tooltip {
+  position: absolute;
+  top: 100%;
+  z-index: 5;
+  display: block;
+  max-width: 100%;
+  padding: 0.4rem 0.7rem;
+  margin-top: .1rem;
+  font-size: 0.71094rem;
+  line-height: 1.5;
+  color: #fff;
+  background-color: rgba(244, 106, 106, 0.9);
+  border-radius: 0.25rem; }

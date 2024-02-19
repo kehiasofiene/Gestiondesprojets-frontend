@@ -1,0 +1,154 @@
+<div class="pagee"> 
+
+<div class="page-wrapper">
+  <div class="content">
+  
+  <div class="page-header">
+  <div class="row">
+  <div class="col-sm-12">
+  <ul class="breadcrumb">
+  <li class="breadcrumb-item"><a >Project Management </a></li>
+  <li class="breadcrumb-item"><i class="feather-chevron-right"></i></li>
+  <li class="breadcrumb-item active" style="color: #2e37a4;">Users</li>
+  </ul>
+  </div>
+  </div>
+  </div>
+
+     <div class="container mt-4">
+     <div class="logo text-center" style="text-align: center;">
+        <img  width="300" src="assets/Logo-vermeg.png" class="center-image" alt="" >
+     </div>
+   
+
+     <div class="registration-form m-3 p-4 ">
+      <form [formGroup]="registerForm">
+        <div class="row">
+            <div class="col md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input formControlName="firstname" matInput placeholder="First Name">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  </mat-form-field>
+            </div>
+             <div class="col md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input formControlName="lastname" matInput placeholder="Last Name">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+            <div class="row">
+            <div class="col md-6">
+              <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input formControlName="email"  matInput placeholder="Email" >
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+          </div>
+         <div class="col md-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Login</mat-label>
+              <input formControlName="login"  matInput placeholder="Login">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+         <div class="row">
+    <div class="col md-8">
+      <mat-form-field appearance="outline">
+        <mat-label>Birth date</mat-label>
+        <input formControlName="birth_date" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  </div>
+  <div class="col md-6">
+    <mat-form-field appearance="outline">
+      <mat-label>Cin</mat-label>
+      <input formControlName="cin" matInput placeholder="Cin">
+      <mat-icon matSuffix>perm_identity</mat-icon>
+    </mat-form-field>
+  </div>
+</div>
+        <div class="row">
+          <div class="col md-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Phone number</mat-label>
+                <input formControlName="phone_number" matInput placeholder="Phone number">
+                <mat-icon matSuffix>phone</mat-icon>
+              </mat-form-field>
+        </div>
+        
+         <div class="col md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role" placeholder="Role">
+                <mat-option value="Client">Client</mat-option>
+                <mat-option value="Employee">Employee</mat-option>
+                <mat-option value="Manager">Manager</mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+      </div>
+     <div class="row">
+        <div class="col md-6">
+          <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input type="password" formControlName="password" matInput placeholder="Password">
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+      </div>
+       <div class="col md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input type="password" formControlName="confirmpassword" matInput placeholder="Confirm Password">
+          <div *ngIf="registerForm.hasError('passwordMismatch', 'confirmpassword')">
+            Passwords do not match.
+          </div>
+          <mat-icon matSuffix>vpn_key</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+   <div class="row">
+      <div class="col md-6 mt-3">
+      <mat-form-field appearance="outline">
+        <mat-label>Nationnality</mat-label>
+        <input formControlName="nationality" matInput placeholder="Nationnality">
+        <mat-icon matSuffix>flag</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col md-6">
+      <label id="example-radio-group-label">your gender:</label>
+  <mat-radio-group class="example-radio-group" formControlName="gender" >
+    <mat-radio-button class="example-radio-button" *ngFor="let gender of genders" [value]="gender">
+      {{gender}}
+    </mat-radio-button>
+  </mat-radio-group>
+  </div>
+</div>
+ <div class="row">
+  <div class="col md-8">
+    <mat-form-field appearance="outline">
+      <mat-label>work post</mat-label>
+      <input  formControlName="work_post" matInput placeholder="Work_post">
+    <mat-icon matSuffix>work_outline</mat-icon>
+  </mat-form-field>
+</div>
+<div class="col md-6">
+    <mat-label for="photo">image  :</mat-label>
+    <input  formControlName="image" type="file" id="photo" name="photo" (change)="onFileSelected($event)" > 
+</div>
+</div>
+<div class="col md-6">
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close (click)="backtolist()"> Close</button>
+  <button *ngIf="!isUpdateActive" style="margin-left:8px;" mat-raised-button color="primary" (click)="submit()"> Register</button>
+  <button *ngIf="isUpdateActive" style="margin-left:8px;" mat-raised-button color="primary" (click)="update()"> Update</button>
+</div>
+</div>
+      </form>
+     </div>
+     
+     </div>

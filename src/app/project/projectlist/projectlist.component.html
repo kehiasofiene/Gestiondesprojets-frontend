@@ -1,0 +1,109 @@
+<div>
+<div class="page-wrapper">
+  <div class="content">
+  
+  <div class="page-header">
+  <div class="row">
+  <div class="col-sm-12">
+  <ul class="breadcrumb">
+  <li class="breadcrumb-item"><a >Project Management </a></li>
+  <li class="breadcrumb-item"><i class="feather-chevron-right"></i></li>
+  <li class="breadcrumb-item active" style="color: #2e37a4;">Projects</li>
+  </ul>
+  </div>
+  </div>
+  </div>
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+   <mat-icon>supervised_user_circle</mat-icon>
+  </button>
+  <span>Project management</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="warn" (click)="openDialog()">Add Project</button>
+</mat-toolbar>
+<div class="container">
+ <div style="margin-top: 10px;"></div>
+ <mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="Title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+      <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+      <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+    </ng-container>
+
+    <!-- Start_date Column -->
+    <ng-container matColumnDef="Start_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Start_date </th>
+      <td mat-cell *matCellDef="let row"> {{row.start_date|date}} </td>
+    </ng-container>
+
+     <!-- End_date Column -->
+     <ng-container matColumnDef="End_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>End_date </th>
+      <td mat-cell *matCellDef="let row"> {{row.end_date|date}} </td>
+    </ng-container>
+
+     <!-- Project_status Column -->
+     <ng-container matColumnDef="Project_status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Project_status </th>
+      <td mat-cell *matCellDef="let row"> <button class="custom-badge status-orange" *ngIf="row.project_status === 'Not_Started'">{{row.project_status }}</button>
+        <button class="custom-badge status-orange" *ngIf="row.project_status === 'In_Progress'">{{ row.project_status }}</button>
+        <button class="custom-badge status-grey" *ngIf="row.project_status === 'Suspended'">{{ row.project_status }}</button>
+        <button class="custom-badge status-yellow" *ngIf="row.project_status === 'Delayed'">{{ row.project_status }}</button>
+        <button class="custom-badge status-green" *ngIf="row.project_status === 'Completed'">{{ row.project_status }}</button> 
+        <button class="custom-badge status-red" *ngIf="row.project_status === 'Cancelled'">{{ row.project_status }}</button>  </td>
+    </ng-container>
+
+    <!-- Project_status Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action </th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="editProject(row)" color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteProject(row.id)"color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button color="green"  [routerLink]="['/projectusers',row.id]">
+          <mat-icon>people</mat-icon>
+        </button>
+        <button mat-icon-button color="green"  [routerLink]="['/taskproject',row.id]">
+          <mat-icon>list_alt</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
+</div>
+</div>
+</div>
+</div>
